@@ -17,7 +17,8 @@ function App() {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/content", { question: input });
+const API_BASE_URL = "https://your-backend-service.onrender.com"; // Replace with actual Render backend URL
+const res = await axios.post(`${API_BASE_URL}/api/content`, { question: input });
       const botMessage = { role: "bot", text: res.data.result };
       setChats((prev) => [...prev, botMessage]);
     } catch (err) {
